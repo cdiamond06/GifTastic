@@ -44,20 +44,22 @@ function createGif(){
         .done(function(response){
         	console.log(queryURL);
         	console.log(response);
-
+        	var result = response.data;
         	// create for loop to make gif
-	        for(var i = 0; i <response.data.length; i++){
+	        for(var i = 0; i < result.length; i++){
 
 	        	// creates a div 
 	        	var actorDiv = $("<div>");
 
 	        	// creates paragraph for rating
 	        	var p = $("<p>");
-	        	p.text("Rating: " + response.data[i].rating);
+	        	p.text("Rating: " + result[i].rating);
 
 	        	// creating an image tag and adding the attr
 	        	var actorImage = $("<img>");
-	        	actorImage.attr("src",response.data[i].images.fixed_width_small.url);
+	        	actorImage.attr("src",result[i].images.fixed_width_still.url);
+	        	actorImage.attr("data-still", result[i].images.fixed_width_still.url);
+	        	actorImage.attr("data-animate", result[i].images.fixed_width.url);
 	        	actorImage.attr("data-state", "still");
 	        	actorImage.addClass("gif");
 
@@ -71,6 +73,19 @@ function createGif(){
 
 	        }	
         });
+
+}
+
+function playPauseGif(){
+	var state = $(this).attr("data-state");
+
+	if(state === "still"){
+		$(this).attr("src", $(this).attr("data-animate"));
+		$(this).attr("data-state", "animate");
+	} else{
+		$(this).attr("src", $(this).attr("data-still"));
+		$(this).attr("data-state", "still");
+	}
 
 }
 
@@ -95,4 +110,5 @@ $("#add-actor").on("click",function(event){
 });
 
 $(document).on("click",".actorsButtons",createGif);
+$(document).on("click",".gif",playPauseGif);
 
