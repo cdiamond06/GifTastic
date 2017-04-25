@@ -1,6 +1,6 @@
 // GLOBAL VARIABLES
 // --------------------------------------------------------------------------
-var actors = ["Tom Cruise", "Will Smith", "Matt Damon"];
+var actors = ["Tom Cruise", "Will Smith", "Matt Damon", "Clint Eastwood","Dwanye Johnson","Vin Disel", "Paul Walker", "Drew Berrymore", "Ben Affleck", "Jessica Alba", "Emma Stone"];
 
 
 // FUNCTIONS
@@ -43,9 +43,13 @@ function createGif(){
         // After data comes back from the request
         .done(function(response){
         	console.log(queryURL);
+
         	console.log(response);
+
         	var result = response.data;
         	// create for loop to make gif
+        	console.log(result);
+
 	        for(var i = 0; i < result.length; i++){
 
 	        	// creates a div 
@@ -62,13 +66,14 @@ function createGif(){
 	        	actorImage.attr("data-animate", result[i].images.fixed_width.url);
 	        	actorImage.attr("data-state", "still");
 	        	actorImage.addClass("gif");
+	   
 
 	        	// appending rating and image
 	        	actorDiv.append(p);
 	        	actorDiv.append(actorImage);
 
 	        	// adding the images to the page
-	        	$("#actors").prepend(actorDiv);
+	        	$("#actors").append(actorDiv);
 
 
 	        }	
@@ -106,6 +111,7 @@ $("#add-actor").on("click",function(event){
 
 	actors.push(actor);
 	createButtons();
+	$("#actor-input").val("");
 
 });
 
