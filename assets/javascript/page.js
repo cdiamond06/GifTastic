@@ -33,7 +33,7 @@ function createGif(){
 
 
 	// construct a query url for this actor
-	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
         actorGit + "&api_key=dc6zaTOxFJmzC&limit=12";
 
         $.ajax({
