@@ -34,7 +34,7 @@ function createGif(){
 
 	// construct a query url for this actor
 	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
-        actorGit + "&api_key=dc6zaTOxFJmzC&limit=10";
+        actorGit + "&api_key=dc6zaTOxFJmzC&limit=12";
 
         $.ajax({
           url: queryURL,
@@ -56,7 +56,7 @@ function createGif(){
 	        	var actorDiv = $("<div class ='single'>");
 
 	        	// creates paragraph for rating
-	        	var p = $("<p>");
+	        	var p = $("<p class='double'>");
 	        	p.text("Rating: " + result[i].rating);
 
 	        	// creating an image tag and adding the attr
