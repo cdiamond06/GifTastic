@@ -9,12 +9,16 @@ button {
     font-size: 13px;
     margin: 5px;
 }
-#actor-form{
-	float:right;
-}
 .gif{
+	height: 181px;
+	width:250px;
+
+
+}
+.single{
 	height:200px;
 	width:200px;
 	float:left;
-	margin-bottom:5px;
+	margin:5px;
+	margin-right: 5px;
 }

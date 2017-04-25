@@ -53,7 +53,7 @@ function createGif(){
 	        for(var i = 0; i < result.length; i++){
 
 	        	// creates a div 
-	        	var actorDiv = $("<div>");
+	        	var actorDiv = $("<div class ='single'>");
 
 	        	// creates paragraph for rating
 	        	var p = $("<p>");
